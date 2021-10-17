@@ -1,9 +1,9 @@
 {
-  "name": "hardhat-ts-plugin-boilerplate",
+  "name": "hardhat-secure-signer",
   "version": "0.0.1",
-  "description": "Hardhat TypeScript plugin boilerplate",
-  "repository": "github:nomiclabs/hardhat-ts-plugin-boilerplate",
-  "author": "Nomic Labs LLC",
+  "description": "Hardhat plugin for encrypted private key and mnemonic storage",
+  "repository": "https://github.com/anthonymartin/hardhat-secure-signer",
+  "author": "Anthony Martin",
   "license": "MIT",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -40,9 +40,15 @@
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "@types/readline-sync": "^1.4.4",
+    "readline-sync": "^1.4.10"
   },
   "peerDependencies": {
-    "hardhat": "^2.0.0"
+    "hardhat": "^2.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "ethers": "^5.4.7"
+  },
+  "dependencies": {
   }
 }

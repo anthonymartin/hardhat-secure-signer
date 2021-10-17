@@ -1,58 +1,61 @@
-# Hardhat TypeScript plugin boilerplate
+# hardhat-secure-signer
 
-This is a sample Hardhat plugin written in TypeScript. Creating a Hardhat plugin
-can be as easy as extracting a part of your config into a different file and
-publishing it to npm.
+A plugin for using password encrypted private keys and mnemonics
 
-This sample project contains an example on how to do that, but also comes with
-many more features:
+## What
 
-- A mocha test suite ready to use
-- TravisCI already setup
-- A package.json with scripts and publishing info
-- Examples on how to do different things
+This plugin adds a layer of security to your hardhat installation. It will allow you to store your private keys and mnemonics in a password encrypted file. 
+When running hardhat tasks that require a signer, a prompt will be displayed asking for the wallet to use and the password used to encrypt it.
+This means that you don't need to store your private keys or mnemonics unencrypted on your hard drive.
 
 ## Installation
 
-To start working on your project, just run
-
 ```bash
-npm install
+npm install hardhat-secure-signer @nomiclabs/hardhat-ethers ethers
 ```
 
-## Plugin development
+Import the plugin in your `hardhat.config.js`:
 
-Make sure to read our [Plugin Development Guide](https://hardhat.org/advanced/building-plugins.html) to learn how to build a plugin.
+```js
+require("hardhat-secure-signer");
+```
 
-## Testing
+Or if you are using TypeScript, in your `hardhat.config.ts`:
 
-Running `npm run test` will run every test located in the `test/` folder. They
-use [mocha](https://mochajs.org) and [chai](https://www.chaijs.com/),
-but you can customize them.
+```ts
+import "hardhat-secure-signer";
+```
 
-We recommend creating unit tests for your own modules, and integration tests for
-the interaction of the plugin with Hardhat and its dependencies.
 
-## Linting and autoformat
+## Required plugins
 
-All of Hardhat projects use [prettier](https://prettier.io/) and
-[tslint](https://palantir.github.io/tslint/).
+- [@nomiclabs/hardhat-ethers](https://hardhat.org/plugins/nomiclabs-hardhat-ethers.html)
+- [ethers](https://www.npmjs.com/package/ethers)
 
-You can check if your code style is correct by running `npm run lint`, and fix
-it with `npm run lint:fix`.
+## Tasks
 
-## Building the project
+This plugin adds the `init-signer` task to Hardhat:
+```
+Usage: hardhat [GLOBAL OPTIONS] init-signer
 
-Just run `npm run build` ️👷
+init-signer: generates encrypted signing key
 
-## README file
+```
 
-This README describes this boilerplate project, but won't be very useful to your
-plugin users.
+## Environment extensions
 
-Take a look at `README-TEMPLATE.md` for an example of what a Hardhat plugin's
-README should look like.
+This plugin extends the Hardhat Runtime Environment by adding an `useSigner` field
+whose type is `useSigner`.
 
-## Migrating from Buidler?
 
-Take a look at [the migration guide](MIGRATION.md)!
+## Usage
+
+To use this plugin, first you must run the `init-signer` hardhat task. 
+Then, afterwards, from any hardhat task, you can access the signer using `hre.useSigner()`.
+You will be prompted for a password to decrypt the signer.
+
+## Todo
+
+- add support for mnemonics
+- auto add .signers to project .gitignore
+- update to extend hardhat-ethers plugin instead
