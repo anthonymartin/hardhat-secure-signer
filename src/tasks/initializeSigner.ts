@@ -25,7 +25,8 @@ async function main(args: any, hre: HardhatRuntimeEnvironment) {
 
 function createDirectoryIfNotExists() {
   if (!fs.existsSync(SIGNERS_DIR)) {
-    fs.mkdirSync(SIGNERS_DIR, 700);
+    // todo: initially set directory mode to 700, but had issues when using plugin. need to find the right permissions for this directory
+    fs.mkdirSync(SIGNERS_DIR);
   }
 }
 
