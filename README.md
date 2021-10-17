@@ -59,3 +59,4 @@ You will be prompted for a password to decrypt the signer.
 - add support for mnemonics
 - auto add .signers to project .gitignore
 - update to extend hardhat-ethers plugin instead
+- make more secure (e.g. remote secret manager integration)
