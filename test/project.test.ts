@@ -7,8 +7,8 @@ describe('Integration tests examples', function () {
   describe('Hardhat Runtime Environment extension', function () {
     useEnvironment('hardhat-project')
 
-    it('Should add the useSigner function', function () {
-      assert.instanceOf(this.hre.useSigner, Function)
+    it('Should add the askForSigner function', function () {
+      assert.instanceOf(this.hre.askForSigner, Function)
     })
   })
 });

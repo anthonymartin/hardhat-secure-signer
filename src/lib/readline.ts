@@ -7,10 +7,17 @@ export function askForOverwriteConfirmation() {
 }
 
 export function askForWalletToUse(addresses: string[]) {
+
   const key = keyInSelect(
     addresses,
     'Which wallet would you like to use for signing transactions?',
   );
+  if (key === (addresses.length - 1)) {
+    return "create-and-save-key";
+  }
+  if (key === (addresses.length - 2)) {
+    return "one-time-key";
+  }
   if (key === -1) {
     process.exit();
   }
