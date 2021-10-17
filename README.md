@@ -57,6 +57,7 @@ You will be prompted for a password to decrypt the signer.
 ## Todo
 
 - add support for mnemonics
+- add support for in-memory signer only (e.g. keys/mnemonics not saved to hard drive)
 - auto add .signers to project .gitignore
 - update to extend hardhat-ethers plugin instead
 - make more secure (e.g. remote secret manager integration)
