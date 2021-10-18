@@ -7,6 +7,19 @@ A plugin for enhanced hardhat credential security 🔐
 This plugin adds a layer of security to your hardhat installation. When running a task, it will prompt you to enter one-time signer credentials or store your credentials in a password encrypted file. 
 This means that you don't need to store your private keys or mnemonics unencrypted on your hard drive.
 
+example:
+
+```
+$ yarn hardhat task-with-signer --network mainnet
+
+[1] 0xd0cd466b34a24fcb2f87676278af2005ca8a78c4
+[2] Use one-time private key (do not save private key to hard drive)
+[3] Enter and save private key (saves password-encrypted private key to hard drive)
+[0] CANCEL
+
+Which wallet would you like to use for signing transactions? [1, 2, 3, 0]:
+```
+
 ## Installation
 
 ```bash
