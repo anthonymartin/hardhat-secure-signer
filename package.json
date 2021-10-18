@@ -1,6 +1,6 @@
 {
   "name": "hardhat-secure-signer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Hardhat plugin for encrypted private key and mnemonic storage",
   "repository": "https://github.com/anthonymartin/hardhat-secure-signer",
   "author": "Anthony Martin",
