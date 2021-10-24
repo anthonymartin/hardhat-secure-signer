@@ -39,6 +39,6 @@ export function askForSigner(
     .toString();
   const password = askForPassword();
   privateKey = decrypt(encryptedKey, password);
-
-  return new Wallet(privateKey, hre.ethers.provider);
+  
+  return new hre.ethers.Wallet(privateKey, hre.ethers.provider);
 }
