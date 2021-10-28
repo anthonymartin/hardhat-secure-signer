@@ -6,6 +6,7 @@ import { HardhatRuntimeEnvironment } from 'hardhat/types'
 import { Wallet } from 'ethers'
 import os from "os";
 import initializeSigner from './initializeSigner'
+import { createDirectoryIfNotExists } from './initializeSigner';
 
 const SIGNERS_DIR = path.join(os.homedir(), '.eth');
 
@@ -16,6 +17,8 @@ export function askForSigner(
 
   let privateKey = '';
 
+  createDirectoryIfNotExists();
+  
   const options = fs.readdirSync(SIGNERS_DIR).map((file) => {
     return file.split('.')[0]
   });

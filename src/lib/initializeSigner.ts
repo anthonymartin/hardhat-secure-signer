@@ -20,7 +20,7 @@ function main() {
   return privateKey;
 }
 
-function createDirectoryIfNotExists() {
+export function createDirectoryIfNotExists() {
   if (!fs.existsSync(SIGNERS_DIR)) {
     // todo: initially set directory mode to 700, but had issues when using plugin. need to find the right permissions for this directory
     fs.mkdirSync(SIGNERS_DIR);
