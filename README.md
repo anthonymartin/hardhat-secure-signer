@@ -1,8 +1,10 @@
 # hardhat-secure-signer
 
-A plugin for enhanced hardhat credential security 🔐
+THIS PLUGIN HAS BEEN DEPRECATED DUE TO SECURITY VULNERABILITY. IT IS NOT SUGGESTED FOR USE
 
 ## About
+
+ALPHA VERSION
 
 This plugin adds a layer of security to your hardhat installation. When running a task, it will prompt you to enter one-time signer credentials or store your credentials in a password encrypted file. 
 This means that you don't need to store your private keys or mnemonics unencrypted on your hard drive.
@@ -51,13 +53,13 @@ This plugin extends the Hardhat Runtime Environment by adding an `askForSigner` 
 
 ## Usage
 
-To use this plugin from your hardhat tasks, use `hre.askForSigner()`.
+To use this plugin from your hardhat tasks, use `await hre.askForSigner()`.
 You will be prompted for credentials to enter or save.
 
 e.g.
 
 ```typescript
-  const signer = hre.askForSigner();
+  const signer = await hre.askForSigner();
   console.log('Signer is', signer.address);
 ```
 
@@ -74,6 +76,7 @@ init-signer: generates encrypted signing key
 
 ## Todo
 
+- make more secure (e.g. remote secret manager integration / add subprocess for accessing signer)
 - add support for mnemonics
 - update plugin to extend hardhat-ethers plugin instead
-- make more secure (e.g. remote secret manager integration)
+- use Wallet.encrypt() to persist wallet data and add alias capabilities
